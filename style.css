@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+    margin-top: 0;
+}
+
+body {
+    display: grid;
+    grid-template-areas: 
+        "header header "
+        "nav article "
+        "footer footer ";
+    grid-template-rows: 60px 1fr 60px;
+    grid-template-columns: 15% 1fr;
+    grid-gap: 10px;
+    height: 100vh;
+    margin: 0;
+    background-color: #c4c4c4;
+}
+
+@media all and (max-width: 600px) 
+{
+    body {
+        grid-template-areas: "header""nav""article""footer";
+        grid-template-rows: 80px 1fr 1fr 70px;
+        grid-template-columns: 1fr;
+    }
+}
+
+header, footer, article, nav, div {
+    padding: 20px;
+    background: #e0e0e0;
+}
+
+#pageHeader {grid-area: header;}
+#pageFooter {grid-area: footer;}
+#pageContent {grid-area: article;}
+#mainNav {grid-area: nav;}
+#minArticles{display: flex;}
+#minArticles > *{
+    margin-left: 10px;
+    background-color: #ffffff;
+}
+
+ul.leftMenu{
+    padding: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+li.menuitem {
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+li.menuitem > a{
+    color: black;
+    text-decoration: none;
+    /* display: block; */
+}
+
+li.menuitem > a:hover{
+    color: grey;
+    text-decoration: none;
+    /* display: block; */
+}
+
+a.button{
+    color: white;
+    text-decoration: none;
+    background-color: blueviolet;
+    padding: 10px;
+    border-radius: 5px;
+}
+a.button:hover{
+    background-color: chocolate;
+    padding: 10px;
+}
