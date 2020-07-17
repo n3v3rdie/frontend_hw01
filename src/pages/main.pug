@@ -1,0 +1,42 @@
+-var darkTheme = false
+mixin article(title)
+  .article
+    .article-wrapper
+      h2= title
+      if block
+        block
+      else
+        p No content provided
+
++article('Коротко о себе')
+  div(itemscope itemtype="http://schema.org/Person")
+    span(itemprop="name") Николай Порохин
+    span(itemprop="jobTitle")  инженер-программист
+    div(itemprop="address" itemscope itemtype="http://schema.org/PostalAddress")
+      p Родился и живу в  
+        span(itemprop="addressRegion") Архангельской области 
+        | в городе 
+        span(itemprop="addressLocality") Северодвинске 
++article('Итак начнем..')
+    p 
+        | На&nbsp;самом деле очень тяжело написать рассказ о&nbsp;себе. 
+        | Ну&nbsp;чтож попробуем. В&nbsp;2015 году я&nbsp;закончил САФУ 
+        | <i>&laquo;прикладная математика и&nbsp;информатика&raquo;</i>. 
+        | Отдал долг родине в&nbsp;&laquo;почти немецком&raquo; городе Калининград. 
+        | Устроился на&nbsp;центр судоремонта АО&nbsp;&laquo;Звездочка&raquo; 
+        | инженером-программистом, и&nbsp;попал в&nbsp;группу &laquo;Администрирования БД&raquo;. 
+        | Тут подтянул свои навыки программирования на&nbsp;языках: 
+        ul
+          each val in ['C++', 'Delphi', 'Python3', 'JavaScript']
+            li= val
+    p Поработал с&nbsp;<b>POWER</b>-серверами от<b>&nbsp;&laquo;IBM&raquo;</b>, системами хранения данных, с&nbsp;отказоустойчивыми серверами от<b>&nbsp;&laquo;Fujitsu&raquo;</b>.
+    p 
+        | Даже умудрился поступить в&nbsp;магистратура на&nbsp;направление <i>&laquo;Высокопроизводительные и&nbsp;облачные вычисления&raquo;</i>. 
+        | После окончания 1&nbsp;курса на&nbsp;отлично, забросил учебу по&nbsp;семейным обстоятельствам.
+footer  
+  
+  #shared
+    a  <i class="fa fa-facebook-official" aria-hidden="true"></i>
+    a  <i class="fa fa-vk" aria-hidden="true"></i>
+    a  <i class="fa fa-twitter" aria-hidden="true"></i>
+  input(type="button", value="Переключить тему", onclick='changeTheme()').button
