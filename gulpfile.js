@@ -1,19 +1,18 @@
-var { watch, src, dest, parallel, series, task } = require('gulp');
-var browserSync = require('browser-sync');
-var del = require('del');
-var sass = require('gulp-sass');
-var postcss = require('gulp-postcss');
-var autoprefixer = require('autoprefixer');
-var cssnano = require('cssnano');
-var pug = require('gulp-pug');
+const { watch, src, dest, parallel, series, task } = require('gulp');
+const browserSync = require('browser-sync');
+const del = require('del');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
+const pug = require('gulp-pug');
+const imagemin = require('gulp-imagemin');
+const webpack = require('webpack-stream');
 
 
-//Очистка билда
 function clearBuild() {
     return del('build/');
   }
 
-// Девсервер
 function devServer(cb) {
   var params = {
     watch: true,
@@ -26,7 +25,6 @@ function devServer(cb) {
   cb();
 }
 
-// Сборка
 function buildPages() {
   return src('src/pages/*.pug')
     .pipe(pug())
@@ -34,8 +32,7 @@ function buildPages() {
 }
 
 function buildStyles() {
-  return src('src/styles/*.scss')
-    .pipe(sass())
+  return src('src/styles/*.css')
     .pipe(postcss([
       autoprefixer(),
       cssnano()
@@ -43,21 +40,31 @@ function buildStyles() {
     .pipe(dest('build/styles/'));
 }
 
-function buildScripts() {
-  return src('src/scripts/*.js')
+function buildScripts(cb) {
+  src('src/scripts/modules/*.js')
+    .pipe(dest('build/scripts/modules/'));
+  src('src/scripts/index.js')
+    .pipe(webpack({ output: { filename: 'index.js' } }))
     .pipe(dest('build/scripts/'));
+    
+  cb();
 }
 
-function buildAssets() {
-  return src('src/assets/**/*.*')
+function buildAssets(cb) {
+  src(['src/assets/**/*.*', '!src/assets/img/**/*.*'])
     .pipe(dest('build/assets/'));
+
+  src('src/assets/img/**/*.*')
+    .pipe(imagemin())
+    .pipe(dest('build/assets/img'));
+
+  cb();
 }
 
-// Отслеживание
 function watchFiles() {
   watch('src/pages/*.pug', buildPages);
-  watch('src/styles/*.scss', buildStyles);
-  watch('src/scripts/*.js', buildScripts);
+  watch('src/styles/*.css', buildStyles);
+  watch('src/scripts/**/*.js', buildScripts);
   watch('src/assets/**/*.*', buildAssets);
 }
 
