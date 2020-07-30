@@ -2,7 +2,8 @@
     var productList = [
     {
         title: "Девушка с жемчужной сережкой, 1665",
-        img: "assets/img/product_item1.jpg",
+        img: 'assets/img/placeholder.jpg',
+        datasrc: "assets/img/product_item1.jpg",
         author: "Ян Вермеер",
         size: "44x39 см, холст",
         price: '900Р',
@@ -11,7 +12,8 @@
     },
     {
         title: "Бонапарт на перевале Сен-Бернар, 1801",
-        img: "assets/img/product_item2.jpg",
+        img: 'assets/img/placeholder.jpg',
+        datasrc: "assets/img/product_item2.jpg",
         author: "Жак-Луи Давид",
         size: "261x220 см, холст",
         price: '3 900Р',
@@ -20,7 +22,8 @@
     },
     {
         title: "Охотники на снегу, 1565",
-        img: "assets/img/product_item3.jpg",
+        img: 'assets/img/placeholder.jpg',
+        datasrc: "assets/img/product_item3.jpg",
         author: "Питер Брейгель Старший",
         size: "44x39 см, холст",
         price: '2 400Р',
@@ -33,11 +36,11 @@ mixin product-item(product)
     .product-item(itemscope itemtype="http://schema.org/Product" style= product.custom_css)
         .product-img
             if product.main_color == 'blue'
-                 img(itemprop="image" src= product.img, alt="item-preview" class='product-shadow-blue')
+                img.js-lazy(itemprop="image", src= product.img, data-src= product.datasrc, alt="item-preview" class='product-shadow-blue')
             else if product.main_color == 'red'
-                img(itemprop="image" src= product.img, alt="item-preview" class='product-shadow-red')
+                img.js-lazy(itemprop="image", src= product.img, data-src= product.datasrc, alt="item-preview" class='product-shadow-red')
             else   
-                img(itemprop="image" src= product.img, alt="item-preview" class='product-shadow-green')
+                img.js-lazy(itemprop="image", src= product.img, data-src= product.datasrc, alt="item-preview" class='product-shadow-green')
             end
         .product-title(itemprop="name")= product.title
         .product-author= product.author 

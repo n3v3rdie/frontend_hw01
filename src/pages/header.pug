@@ -5,35 +5,39 @@
             author: 'Никола Пуссен',
             size: '97 x 108 см, холст',
             price: '2 400Р',
-            img: 'assets/img/slide1.jpg',
+            img: 'assets/img/placeholder.jpg',
+            datasrc: 'assets/img/slide1.jpg',
         },
         {
             title: 'Рождение Венеры, 1636',
             author: 'Евген Пуссен',
             size: '397 x 108 см, холст',
             price: '1 400Р',
-            img: 'assets/img/slide2.jpg',
+            img: 'assets/img/placeholder.jpg',
+            datasrc: 'assets/img/slide2.jpg',
         },
         {
             title: 'Рождение Венеры, 1636',
             author: 'Никола Глина',
             size: '297 x 108 см, холст',
             price: '3 400Р',
-            img: 'assets/img/slide3.jpg',
+            img: 'assets/img/placeholder.jpg',
+            datasrc: 'assets/img/slide3.jpg',
         },
         {
             title: 'Рождение Венеры, 1636',
             author: 'Сеич Кучка',
             size: '197 x 108 см, холст',
             price: '4 400Р',
-            img: 'assets/img/slide4.jpg',
+            img: 'assets/img/placeholder.jpg',
+            datasrc: 'assets/img/slide4.jpg',
         },
     ];
 
 mixin product-block(product)
     .slide(itemscope itemtype="http://schema.org/Product") 
         .img 
-            img(itemprop="image" src= product.img, alt="")
+            img.js-lazy(itemprop="image" src= product.img, data-src= product.datasrc, alt="Product item")
         .img-title
             .obj-main-attr
                 .product-title(itemprop="name").mb5= product.title
@@ -59,11 +63,6 @@ header
                     +product-block(product)
         .nav-slider-wrapper
             ul.nav-slider
-                li(class='type-image')
-                    img(src="assets/img/slide1.jpg", alt="") 
-                li(class='type-image')
-                    img(src="assets/img/slide2.jpg", alt="")
-                li(class='type-image')
-                    img(src="assets/img/slide3.jpg", alt="")
-                li(class='type-image')
-                    img(src="assets/img/slide4.jpg", alt="")
+                for p in productList
+                    li(class='type-image')
+                        img.js-lazy(src= p.img, data-src= p.datasrc, alt="Product item" itemprop="image") 
