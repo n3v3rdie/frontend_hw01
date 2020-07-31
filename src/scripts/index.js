@@ -6,7 +6,6 @@ const lazyLoad = () => {
   $('.js-lazy').each((index, el) => {
     const $image = $(el);
     const realSrc = $image.attr('data-src');
-    console.log(realSrc);
     $image.attr('src', realSrc);
   });
 }

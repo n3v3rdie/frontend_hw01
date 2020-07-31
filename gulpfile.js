@@ -41,10 +41,10 @@ function buildStyles() {
 }
 
 function buildScripts(cb) {
-  src('src/scripts/modules/*.js')
-    .pipe(dest('build/scripts/modules/'));
+  src('src/scripts/lib/*.js')
+    .pipe(dest('build/scripts/lib/'));
   src('src/scripts/index.js')
-    .pipe(webpack({ output: { filename: 'index.js' } }))
+    .pipe(webpack({ mode: 'production', output: { filename: 'index.js' } }))
     .pipe(dest('build/scripts/'));
     
   cb();
