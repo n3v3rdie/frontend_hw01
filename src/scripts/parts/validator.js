@@ -13,10 +13,13 @@ const validateEmail = () => {
 }
 
 export default function initValidator() {
-    email.value = localStorage.getItem('email');
-    email.oninput = () => {
-        localStorage.setItem('email', email.value)
-    };
+    
+    if (localStorage !== undefined){
+        email.value = localStorage.getItem('email');
+        email.oninput = () => {
+            localStorage.setItem('email', email.value)
+        };
+    }
 
     $( "#submit" ).click(function() {
         const form = $( "#feedback" );
