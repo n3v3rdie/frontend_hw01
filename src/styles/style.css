@@ -158,16 +158,18 @@ a.page:hover{
     position: relative;
     margin-right: 6px;
 }
-.shopping-cart i::after{
+#shopping-bug {
     color: #fff;
     background: var(--actient-color);
     top: -5px;
     left: 6px;
-    content: "5";
+    content: attr(data-after);
     font-size: 12px;
-    padding: 1px 5px;
+    padding: 1px 4px;
     border-radius: 50%;
     position: absolute;
+    line-height: 1;
+    display: none;
 }
 .empty{
     opacity: 0.25;

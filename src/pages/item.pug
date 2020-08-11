@@ -52,7 +52,7 @@ mixin add-radiobutton(name, value)
 
                         .item-size
                             a(href="#popup-dialog" class='popup-with-move-anim') Таблица размеров
-                        button.item-button-primary= `Купить, ${product.price}`
+                        button(onclick="addToCart()").item-button-primary= `Купить, ${product.price}`
 
                     .item-decription
                         .item-description-grid

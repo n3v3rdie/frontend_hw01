@@ -57,6 +57,18 @@ const initTableSizePopup = () => {
   });
 }
 
+const addToCart = () => {
+  let cart = JSON.parse(localStorage.getItem('ShoppingCart'));
+  if (!cart)
+    cart.count = 1;
+  else
+    cart.count++;
+  localStorage.setItem('ShoppingCart', JSON.stringify(cart));
+  const shoppingBug = $('#shopping-bug');
+  shoppingBug.css('display', 'block');
+  shoppingBug.html(cart.count);
+}
+
 $(document).ready(() => {
     initTableSizePopup();
     initItemSlider();
