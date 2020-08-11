@@ -59,9 +59,10 @@ const initTableSizePopup = () => {
 
 const addToCart = () => {
   let cart = JSON.parse(localStorage.getItem('ShoppingCart'));
-  if (!cart)
+  if (!cart){
+    cart = {};
     cart.count = 1;
-  else
+  }else
     cart.count++;
   localStorage.setItem('ShoppingCart', JSON.stringify(cart));
   const shoppingBug = $('#shopping-bug');
