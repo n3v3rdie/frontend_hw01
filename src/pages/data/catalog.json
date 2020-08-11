@@ -1,7 +1,7 @@
 [
   {
     "title": "Фетч",
-    "url": "/index.html",
+    "url": "index.html",
     "items": [
       {
         "url": "#",
@@ -19,7 +19,7 @@
   },
   {
     "title": "Для мужчин",
-    "url": "/index.html",
+    "url": "index.html",
     "items": [
       {
         "url": "#",
@@ -41,7 +41,7 @@
   },
   {
     "title": "Для женщин",
-    "url": "/index.html",
+    "url": "index.html",
     "items": [
       {
         "url": "#",
@@ -63,14 +63,14 @@
   },
   {
     "title": "Обувь",
-    "url": "/catalog-shoes.html",
+    "url": "catalog-shoes.html",
     "items": [
       {
-        "url": "/catalog-shoes.html",
+        "url": "catalog-shoes.html",
         "title": "Кроссовки и кеды"
       },
       {
-        "url": "/catalog-shoes.html",
+        "url": "catalog-shoes.html",
         "title": "Ботинки"
       }
     ]
