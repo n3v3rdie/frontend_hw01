@@ -4,7 +4,7 @@ mixin product-card(item, i)
     .product-card
         a(href= item.url)
             .product-img
-                img(src= `/assets/img/items/img-${i}.jpg`, alt="")
+                img(src= `assets/img/items/img-${i}.jpg`, alt="")
             .catalog-product-title
                 for t in item.title
                     = t 
