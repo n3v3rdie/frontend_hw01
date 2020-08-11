@@ -1,68 +1,11 @@
--
-    var productList = [
-        {
-            title: 'Рождение Венеры, 1636',
-            author: 'Никола Пуссен',
-            size: '97 x 108 см, холст',
-            price: '2 400Р',
-            img: 'assets/img/placeholder.jpg',
-            datasrc: 'assets/img/slide1.jpg',
-        },
-        {
-            title: 'Рождение Венеры, 1636',
-            author: 'Евген Пуссен',
-            size: '397 x 108 см, холст',
-            price: '1 400Р',
-            img: 'assets/img/placeholder.jpg',
-            datasrc: 'assets/img/slide2.jpg',
-        },
-        {
-            title: 'Рождение Венеры, 1636',
-            author: 'Никола Глина',
-            size: '297 x 108 см, холст',
-            price: '3 400Р',
-            img: 'assets/img/placeholder.jpg',
-            datasrc: 'assets/img/slide3.jpg',
-        },
-        {
-            title: 'Рождение Венеры, 1636',
-            author: 'Сеич Кучка',
-            size: '197 x 108 см, холст',
-            price: '4 400Р',
-            img: 'assets/img/placeholder.jpg',
-            datasrc: 'assets/img/slide4.jpg',
-        },
-    ];
-
-mixin product-block(product)
-    .slide(itemscope itemtype="http://schema.org/Product") 
-        .img 
-            img.js-lazy(itemprop="image" src= product.img, data-src= product.datasrc, alt="Product item")
-        .img-title
-            .obj-main-attr
-                .product-title(itemprop="name").mb5= product.title
-                .product-author= product.author 
-            .obj-add-attr
-                .product-size(itemprop="size").mb5= product.size
-                .product-price(itemprop="price")= product.price
 header
-    .header-title
-        h1 Репро<br>дукцио
-        .title Оффлайн-магазин репродукции шедевров мирового искусства
-        .header-contacts(itemprop="address" itemscope itemtype="http://schema.org/PostalAddress")
-            span(itemprop="addressLocality") Санкт-Петербург, <br> 
-            span(itemprop="streetAddress") ул. Адмирала Черокова, 18
-            div(itemscope itemtype="http://schema.org/Organization")
-                .telephone(itemprop="telephone") +7 812 960-22-01
-                .email(itemprop="email") 
-                    a(href="mailto:shop@reproduct.io") shop@reproduct.io
-    .header-slider
-        .main-slider-wrapper
-            .main-slider
-                for product in productList
-                    +product-block(product)
-        .nav-slider-wrapper
-            ul.nav-slider
-                for p in productList
-                    li(class='type-image')
-                        img.js-lazy(src= p.img, data-src= p.datasrc, alt="Product item" itemprop="image") 
+    nav.header-menu
+        a(href="/index.html").logo Фетч
+        ul.nav-menu 
+            for item in menu
+                li.menu-item
+                    a(href= item.url)= item.title
+    .shopping-cart
+        a(href="/checkout.html") 
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            span Оформить заказ

@@ -1,20 +1,26 @@
+mixin footer-menu-group(item)
+    .categoria-group
+        .group-title
+            a(href= item.url)= item.title
+        .group-items
+            for i in item.items
+                a(href= i.url)= i.title
+        if block 
+            block
+
 footer
-    .footer-title(itemscope itemtype="http://schema.org/Organization")
-        div    
-            h2 Написать нам
-            h3 
-                |Заполните форму справа<br> 
-                |или отправьте письмо на 
-                a(href="mailto:shop@reproduct.io" itemprop="email") shop@reproduct.io
-        .footer-text
-            span(itemprop="name") Репродукция 2020
-            a(href="#popup-dialog" class='popup-with-move-anim') Правила обработки персональных данных
-    form(action='/add_movie', method='POST' id='feedback')  
-        input(type='text', placeholder='Эл.почта', id='email')
-        label(for="email" class='error-hint' id='email-label') Введите почту в формате <br> xxx@xxx.xxx 
-        textarea(name='Message', placeholder='Сообщение')
-        .button-wrapper
-            input(id='submit', type='button', class='button', value='Отправить сообщение') 
-    .message-success
-        h4 Отправлено
-        h3 Мы ответим Вам на почту в течение нескольких рабочих дней.
+    .footer-content
+        nav.footer-nav
+            for menu_item in catalog
+                +footer-menu-group(menu_item)
+                    if menu_item.title == 'Фетч'
+                        .footer-contact
+                            a(href="mailto:shop@fetch.ru") shop@fetch.ru
+                            .footer-phone
+                                .phone.title 8 800 912-11-42
+                                .phone.subtitle Звонок бесплатный
+   
+        .bottom-title
+            span © Фетч-команда, 2019
+            a(href="http://") Правила обработки персональных данных
+            a(href="http://") Разработка и поддержка сайта

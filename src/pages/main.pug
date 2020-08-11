@@ -1,57 +1,45 @@
--
-    var productList = [
-    {
-        title: "Девушка с жемчужной сережкой, 1665",
-        img: 'assets/img/placeholder.jpg',
-        datasrc: "assets/img/product_item1.jpg",
-        author: "Ян Вермеер",
-        size: "44x39 см, холст",
-        price: '900Р',
-        main_color: 'blue',
-        custom_css: '',
-    },
-    {
-        title: "Бонапарт на перевале Сен-Бернар, 1801",
-        img: 'assets/img/placeholder.jpg',
-        datasrc: "assets/img/product_item2.jpg",
-        author: "Жак-Луи Давид",
-        size: "261x220 см, холст",
-        price: '3 900Р',
-        main_color: 'red',
-        custom_css: '',
-    },
-    {
-        title: "Охотники на снегу, 1565",
-        img: 'assets/img/placeholder.jpg',
-        datasrc: "assets/img/product_item3.jpg",
-        author: "Питер Брейгель Старший",
-        size: "44x39 см, холст",
-        price: '2 400Р',
-        main_color: 'green',
-        custom_css: 'max-width:400px',
-    },
-    ];
-
-mixin product-item(product)
-    .product-item(itemscope itemtype="http://schema.org/Product" style= product.custom_css)
-        .product-img
-            if product.main_color == 'blue'
-                img.js-lazy(itemprop="image", src= product.img, data-src= product.datasrc, alt="item-preview" class='product-shadow-blue')
-            else if product.main_color == 'red'
-                img.js-lazy(itemprop="image", src= product.img, data-src= product.datasrc, alt="item-preview" class='product-shadow-red')
-            else   
-                img.js-lazy(itemprop="image", src= product.img, data-src= product.datasrc, alt="item-preview" class='product-shadow-green')
-            end
-        .product-title(itemprop="name")= product.title
-        .product-author= product.author 
-            .product-last-line
-                .product-size(itemprop="size")= product.size
-                .product-price(itemprop="price")= product.price
+mixin cat-menu-group(item)
+    .categoria-group
+        .group-title
+            a(href= item.url)= item.title
+        .group-items
+            for i in item.items
+                a(href= i.url)= i.title
+        if block 
+            block
 
 main
-    h2 Популярное
-    h3.margin-bottom-large Нестареющая классика и бестселлеры 
-    .products-slider-wrapper
-        .products-slider
-            for product in productList
-                +product-item(product)
+    .main-cat
+        .main-info
+            |Фетч — мультибрендовый магазин модной одежды.
+            p Следим за трендами и часто обновляем ассортимент.
+            p Доставляем по Москве за день, по России — за неделю.
+        for item in catalog.slice(1)
+            +cat-menu-group(item)
+    .main-grid-news
+        .news-promo
+            h2.news-title 
+                a(href="#") Лукбук, лето 2019
+            h3.news-subtitle Стильные образы для тёплых деньков
+            img(src="/assets/img/promo/lookbook.png", alt="Новая коллекция adidas Originals" class= "news-promo-img")
+        .news-promo
+            h2.news-title 
+                a(href="#") Выбор редакции: часы
+            h3.news-subtitle ТОП-5 лучших предложений по версии администрации Фетч
+        .news-promo
+            h2.news-title 
+                a(href="#") Новая коллекция adidas Originals
+            h3.news-subtitle Десять крутейших кроссовок
+            img(src="/assets/img/promo/sneakers.png", alt="Новая коллекция adidas Originals" class= "news-promo-img news-promo-big")
+    .product-wrapper
+        .product-title
+            h2.news-title 
+                a(href="#") Предзаказ: Maison Margiela Fusion
+            h3.news-subtitle От 92 000 ₽
+        #product-slider
+            .product-item
+                img(src="/assets/img/product_slider/image1.jpg", alt="")
+            .product-item
+                img(src="/assets/img/product_slider/image2.jpg", alt="")
+            .product-item
+                img(src="/assets/img/product_slider/image3.jpg", alt="")

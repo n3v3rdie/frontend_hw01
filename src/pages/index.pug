@@ -1,50 +1,22 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Репродукция Нестареющая классика и бестселлеры</title>
-    link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin)
-    link(rel="preload", as='style', href="https://fonts.googleapis.com/css2?family=Roboto&display=swap")
-    link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Roboto&display=swap")
+    <title>Фетч — мультибрендовый магазин модной одежды.</title>
     link(rel="stylesheet", href="styles/style.css")
     link(rel="stylesheet", href="styles/slick.css")
     link(rel="stylesheet", href="styles/slick-theme.css")
-    link(rel="stylesheet", href="styles/magnific.css")
-    link(rel="stylesheet", href="styles/popup.css")
+    link(rel="stylesheet", href="assets/font-awesome-4.7.0/css/font-awesome.min.css")
 </head>
 <body>
-    include header.pug
-    include main.pug
-    include footer.pug
-    #popup-dialog.popup.zoom-anim-dialog.mfp-hide 
-        h2 Правила обработки персональных данных
-        p
-            |Предоставляя свои персональные данные Покупатель даёт согласие на обработку, 
-            |хранение и использование своих персональных данных на основании ФЗ № 152-ФЗ 
-            |«О персональных данных» от 27.07.2006 г. в следующих целях:
-        .indent
-            |Регистрации Пользователя на сайте<br>
-            |Осуществление клиентской поддержки<br>
-            |Получения Пользователем информации о маркетинговых событиях<br>
-            |Выполнение Продавцом обязательств перед Покупателем<br>
-            |Проведения аудита и прочих внутренних исследований с целью повышения качества предоставляемых услуг.<br>
-        p
-            |Под персональными данными подразумевается любая информация личного характера, 
-            |позволяющая установить личность Покупателя такая как:
-        .indent
-            |Фамилия, Имя, Отчество
-        p
-            |Персональные данные Покупателей хранятся исключительно на электронных носителях и 
-            |обрабатываются с использованием автоматизированных систем, за исключением случаев, 
-            |когда неавтоматизированная обработка персональных данных необходима в связи с исполнением требований законодательства.
-        p Продавец обязуется не передавать полученные персональные данные третьим лицам, за исключением следующих случаев:
-        .indent
-            |По запросам уполномоченных органов государственной власти РФ только по основаниям и в порядке, установленным законодательством РФ
-
-    script(src="scripts/lib/jquery-3.5.1.min.js")
-    script(src="scripts/lib/magnific.js")
-    script(src="scripts/lib/slick.min.js")
+    .body-wrap
+        include promoheader.pug
+        include main.pug
+        include footer.pug
+    script(src="scripts/modules/jquery-3.5.1.min.js")
+    script(src="scripts/modules/slick.min.js")
+    script(src="scripts/menu.js")
     script(src="scripts/index.js")
 </body> 
 </html>

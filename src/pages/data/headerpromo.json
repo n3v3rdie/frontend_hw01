@@ -1,0 +1,23 @@
+[
+    {
+      "url": "#",
+      "title": ["Reebok Aztrek", "Double"],
+      "background": "/assets/img/headerpromo/header-promo1.jpg",
+      "theme": "light",
+      "color": "#000"
+    },
+    {
+        "url": "#",
+        "title": ["Nike ACG: навстречу", "новым открытиям"],
+        "background": "/assets/img/headerpromo/header-promo2.jpg",
+        "theme": "dark",
+        "color": "#fff"
+    },
+    {
+        "url": "#",
+        "title": ["Reebok Aztrek", "Double"],
+        "background": "/assets/img/headerpromo/header-promo3.jpg",
+        "theme": "light",
+        "color": "#ccc"
+    }
+  ]

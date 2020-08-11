@@ -1,0 +1,54 @@
+mixin recommend-slide(item, i)
+    .recommend-slide
+        img(src=`/assets/img/slider-items/img-${i}.jpg`, alt="")
+        div 
+            a(href= item.url).title-recommend
+                for t in item.title
+                    = t 
+                    <br>
+        .subtitle Кроссовки
+        .title 92 000 ₽
+
+mixin add-radiobutton(name, value)
+    label.radiobutton 
+        input(name= name, type="radio",  value= value)
+        span= value
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О магазине Фетч</title>
+    link(rel="stylesheet", href="assets/font-awesome-4.7.0/css/font-awesome.min.css")
+    link(rel="stylesheet", href="styles/slick.css")
+    link(rel="stylesheet", href="styles/magnific.css")
+    link(rel="stylesheet", href="styles/slick-theme.css")
+    link(rel="stylesheet", href="styles/style.css")
+    link(rel="stylesheet", href="styles/popup.css")
+</head>
+<body>
+    .body-wrap
+        include header.pug
+        main
+            .checkout-cmpl-wrapper
+                h1 Заказ №213 оформлен
+                p Скоро вам позвонит менеджер, чтобы подтвердить заказ. 
+                p
+                    a(href="/index.html") Вернуться на главную
+                    |  или 
+                    a(href="/catalog-shoes.html") продолжить покупки в каталоге
+            .slider-recommend
+                h7 Вам может быть интересно
+                #slider-recommend
+                    - for(let i = 0; i < 6; i++)
+                        +recommend-slide(product, i % 4)
+        include footer.pug
+
+    script(src="scripts/modules/jquery-3.5.1.min.js")
+    script(src="scripts/modules/magnific.js")
+    script(src="scripts/modules/slick.min.js")
+    script(src="scripts/item-card.js")
+    script(src="scripts/menu.js")
+</body> 
+</html>

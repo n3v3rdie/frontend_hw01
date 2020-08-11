@@ -1,0 +1,68 @@
+mixin checkout-item(item, i)
+    .flex-container
+        img(src=`/assets/img/slider-items/img-${i}.jpg`, alt="").checkout-item
+        div    
+            div 
+                a(href= item.url).title-recommend
+                    for t in item.title
+                        = t 
+                        <br>
+            .subtitle Кроссовки
+            .title 92 000 ₽
+
+mixin add-radiobutton(name, value)
+    label.radiobutton 
+        input(name= name, type="radio",  value= value)
+        span= value
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление заказа</title>
+    link(rel="stylesheet", href="styles/style.css")
+</head>
+<body>
+    .body-wrap
+        main.checkout
+            h1 Фетч • Оформление заказа
+            .checkout-grid
+                .checkout-cart
+                    -for (let i = 0; i < 3; i++)
+                        +checkout-item(product, i)
+                    .summary-line
+                    .summary
+                        .price-sum 276 000 ₽
+                        .subtitle Доставка бесплатно
+                form(action="/checkout-complete.html", id='checkout' method='get').checkout-form
+                    .form-row
+                        label(for="email") Эл. почта
+                        .input-wrapper
+                            input(type="email", id="email" name="", placeholder="petrov@yandex.ru")
+                            span.subtitle Пришлём чеки и трек-номер
+                    .form-row
+                        label(for="phone") Телефон
+                        .input-wrapper
+                            input(type="tel", name="", id="phone" placeholder="+7 999 275-12-37")
+                            span.subtitle Менеджер позвонит, чтобы подтвердить заказ
+                    .form-row
+                        label(for="") Город
+                        input(type="text", name="", placeholder="Москва")
+                    .form-row
+                        label(for="Address") Адрес
+                        textarea(name='Address', placeholder='Тимирязевская, 32, квартира 99, вход со двора')
+                    .rectangle
+                        .form-info Бесплатная доставка курьером. Оплата картой онлайн.
+                        input(id='submit', type='submit', class='item-button-primary', value='Оформить заказ, 276 000 ₽') 
+
+                        
+            .checkout-footer
+                span © Фетч-команда, 2019
+                span 8 800 912-11-42, звонок бесплатный
+                span
+                    a(href="mailto:shop@fetch.ru") shop@fetch.ru
+                span
+                    a(href="http://") Правила обработки персональных данных
+</body> 
+</html>

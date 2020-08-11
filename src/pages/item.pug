@@ -1,0 +1,97 @@
+mixin recommend-slide(item, i)
+    .recommend-slide
+        img(src=`/assets/img/slider-items/img-${i}.jpg`, alt="")
+        div 
+            a(href= item.url).title-recommend
+                for t in item.title
+                    = t 
+                    <br>
+        .subtitle Кроссовки
+        .title 92 000 ₽
+
+mixin add-radiobutton(name, value)
+    label.radiobutton 
+        input(name= name, type="radio",  value= value)
+        span= value
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О магазине Фетч</title>
+    link(rel="stylesheet", href="assets/font-awesome-4.7.0/css/font-awesome.min.css")
+    link(rel="stylesheet", href="styles/slick.css")
+    link(rel="stylesheet", href="styles/magnific.css")
+    link(rel="stylesheet", href="styles/slick-theme.css")
+    link(rel="stylesheet", href="styles/style.css")
+    link(rel="stylesheet", href="styles/popup.css")
+</head>
+<body>
+    .body-wrap
+        include header.pug
+        main
+            include popup_size.pug
+            .itemcard.flex-container
+                .item-wrapper
+                    h1= product.title.join(' ')
+                    h5= product.type
+                    .item-buy-settings
+                        .item-row-setting 
+                            .item-setting-title Цвет
+                            +add-radiobutton("color", "Белый с розовым")
+                            +add-radiobutton("color", "Белый с зеленым")
+
+                        .item-row-setting 
+                            .item-setting-title Размер US 
+                            .flex-container
+                                +add-radiobutton("size", "6")
+                                +add-radiobutton("size", "6,5")
+                                +add-radiobutton("size", "7")
+                                +add-radiobutton("size", "9")
+
+                        .item-size
+                            a(href="#popup-dialog" class='popup-with-move-anim') Таблица размеров
+                        button.item-button-primary= `Купить, ${product.price}`
+
+                    .item-decription
+                        .item-description-grid
+                            .description-item-grid
+                                span.desc-subtitle Материал
+                                div= product.material
+                            .description-item-grid
+                                snap.desc-subtitle Страна производитель
+                                div= product.manufacturer
+                            .description-item-grid
+                                span.desc-subtitle Описание
+                                    div
+                                        p Деконструктивный и авангардный дизайн с уникальными концепциями и нетрадиционным мастерством. 
+                                        p В качестве материала используются два вида кожи. Верх дополнен деталями из сетчатого материала и текстиля. 
+                                        p Грубые и многослойные кроссовки показывают отличие от традиционного аккуратного стиля создания обуви. Они оснащены раскрашенной вручную резиновой подошвой с брызгами и потеками. 
+                                        p Оригинальная слегка асимметричная система шнуровки и фирменный стежок на заднике завершают уникальный внешний вид.
+                            .description-item-grid
+                                span.desc-subtitle Детали
+                                    ul.detail
+                                        for i in product.detail
+                                            li= i
+                .item-slider
+                    #item-preview
+                        - for(let i = 0; i < 4; i++)
+                            img(src=`/assets/img/item_card/img-${i}.jpg`, alt="")
+                    #item-nav(style= "")
+                        - for(let i = 0; i < 4; i++)
+                            img.item-nav-slider(src=`/assets/img/item_card/img-${i}.jpg`, alt="", style="width:100%")
+            .slider-recommend
+                h7 Вам может быть интересно
+                #slider-recommend
+                    - for(let i = 0; i < 6; i++)
+                        +recommend-slide(product, i % 4)
+        include footer.pug
+
+    script(src="scripts/modules/jquery-3.5.1.min.js")
+    script(src="scripts/modules/magnific.js")
+    script(src="scripts/modules/slick.min.js")
+    script(src="scripts/item-card.js")
+    script(src="scripts/menu.js")
+</body> 
+</html>

@@ -1,0 +1,46 @@
+
+
+mixin product-card(item, i)
+    .product-card
+        a(href= item.url)
+            .product-img
+                img(src= `/assets/img/items/img-${i}.jpg`, alt="")
+            .catalog-product-title
+                for t in item.title
+                    = t 
+                    <br>
+        .subtitle= item.type
+        .title= item.price
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обувь</title>
+    link(rel="stylesheet", href="assets/font-awesome-4.7.0/css/font-awesome.min.css")
+    link(rel="stylesheet", href="styles/slick.css")
+    link(rel="stylesheet", href="styles/slick-theme.css")
+    link(rel="stylesheet", href="styles/style.css")
+</head>
+<body>
+    .body-wrap
+        include header.pug
+        .black-line
+        main
+            h1.light-color Обувь
+            .catalog-shoes
+                -for (let i = 0; i < 16; i++) 
+                    +product-card(product, i)
+            .catalog-nav
+                div.subtitle Страницы
+                a(href="#").page.active 1
+                -for (let i = 2; i < 13; i++)
+                    a(href="#").page= i
+        include footer.pug
+    script(src="scripts/modules/jquery-3.5.1.min.js")
+    script(src="scripts/modules/slick.min.js")
+    script(src="scripts/menu.js")
+</body> 
+</html>

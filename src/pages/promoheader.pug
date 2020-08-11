@@ -1,0 +1,12 @@
+mixin promo-slider(item)
+    .promo-slide(class= item.theme)
+        .promo-img-wrapper(style= `background-image: url('${item.background}')`)  
+            a(href="#" style= `color: ${item.color}`).promo-title   
+                for t in item.title
+                    = t 
+                    <br>
+
+include header.pug
+#promo-slider.promo-slider-wrapper
+    for item in headerpromo
+        +promo-slider(item)
