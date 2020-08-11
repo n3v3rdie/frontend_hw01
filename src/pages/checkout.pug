@@ -1,6 +1,6 @@
 mixin checkout-item(item, i)
     .flex-container
-        img(src=`/assets/img/slider-items/img-${i}.jpg`, alt="").checkout-item
+        img(src=`assets/img/slider-items/img-${i}.jpg`, alt="").checkout-item
         div    
             div 
                 a(href= item.url).title-recommend
@@ -35,7 +35,7 @@ mixin add-radiobutton(name, value)
                     .summary
                         .price-sum 276 000 ₽
                         .subtitle Доставка бесплатно
-                form(action="/checkout-complete.html", id='checkout' method='get').checkout-form
+                form(action="checkout-complete.html", id='checkout' method='get').checkout-form
                     .form-row
                         label(for="email") Эл. почта
                         .input-wrapper

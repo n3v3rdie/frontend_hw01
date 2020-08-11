@@ -1,6 +1,6 @@
 mixin recommend-slide(item, i)
     .recommend-slide
-        img(src=`/assets/img/slider-items/img-${i}.jpg`, alt="")
+        img(src=`assets/img/slider-items/img-${i}.jpg`, alt="")
         div 
             a(href= item.url).title-recommend
                 for t in item.title
@@ -35,9 +35,9 @@ mixin add-radiobutton(name, value)
                 h1 Заказ №213 оформлен
                 p Скоро вам позвонит менеджер, чтобы подтвердить заказ. 
                 p
-                    a(href="/index.html") Вернуться на главную
+                    a(href="index.html") Вернуться на главную
                     |  или 
-                    a(href="/catalog-shoes.html") продолжить покупки в каталоге
+                    a(href="catalog-shoes.html") продолжить покупки в каталоге
             .slider-recommend
                 h7 Вам может быть интересно
                 #slider-recommend
