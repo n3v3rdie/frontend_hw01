@@ -1,10 +1,10 @@
 mixin footer-menu-group(item)
-    .categoria-group
+    .categoria-group(itemscope itemtype="https://www.schema.org/SiteNavigationElement")
         .group-title
-            a(href= item.url)= item.title
+            a(href= item.url item.url itemprop="url")= item.title
         .group-items
             for i in item.items
-                a(href= i.url)= i.title
+                a(href= i.url item.url itemprop="url")= i.title
         if block 
             block
 
@@ -14,10 +14,10 @@ footer
             for menu_item in catalog
                 +footer-menu-group(menu_item)
                     if menu_item.title == 'Фетч'
-                        .footer-contact
-                            a(href="mailto:shop@fetch.ru") shop@fetch.ru
+                        .footer-contact(itemscope itemtype="http://schema.org/Organization")
+                            a(href="mailto:shop@fetch.ru" itemprop="email") shop@fetch.ru
                             .footer-phone
-                                .phone.title 8 800 912-11-42
+                                .phone.title( itemprop="telephone") 8 800 912-11-42
                                 .phone.subtitle Звонок бесплатный
    
         .bottom-title

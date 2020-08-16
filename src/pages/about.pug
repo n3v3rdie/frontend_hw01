@@ -21,19 +21,19 @@
                     p Разнообразие ассортимента обеспечивают товары культовых брендов современности: Barbour, Fred Perry, Norse Projects, Edwin и капсульные коллекции компаний, делающих ставку на эксклюзивность и премиальный статус своей продукции — Stone Island, Polo Ralph Lauren, C.P. Company. 
                     p Приобрести последние можно лишь в нескольких торговых точках по всему миру, включая Фетч. 
                     p Особый повод для гордости — обширная подборка редких и культовых кроссовок adidas Originals, Nike, New Balance, ASICS, Reebok и другие.
-                section.about-contact
-                    span Москва, Тимирязевская, 3
-                    .contact-wrapper
-                        a(href="mailto:shop@fetch.ru") shop@fetch.ru
-                        .phone.title 8 800 912-11-42
+                section.about-contact(itemprop="address" itemscope itemtype="http://schema.org/PostalAddress")
+                    span(itemprop="streetAddress") Москва, Тимирязевская, 3
+                    .contact-wrapper(itemscope itemtype="http://schema.org/Organization")
+                        a(href="mailto:shop@fetch.ru" itemprop="email") shop@fetch.ru
+                        .phone.title(span itemprop="telephone") 8 800 912-11-42
                         .phone.subtitle Звонок бесплатный
                     p ИНН/КПП: 2901152637 / 290101001 ОГРН: 1062901063576БИК: 041117601, к/с 30101810100000000601 
                     p Расчетный счет: 40702810004000103812 в отделении N8637 Сбербанка России, Архангельск 
                     p Генеральный директор — Василенко Артём Викторович
         include footer.pug
 
-    script(src="scripts/modules/jquery-3.5.1.min.js")
-    script(src="scripts/modules/slick.min.js")
+    script(src="scripts/vendor/jquery-3.5.1.min.js")
+    script(src="scripts/vendor/slick.min.js")
     script(src="scripts/menu.js")
 </body> 
 </html>

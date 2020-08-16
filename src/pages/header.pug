@@ -1,10 +1,10 @@
 header
-    nav.header-menu
-        a(href="index.html").logo Фетч
-        ul.nav-menu 
+    nav.header-menu(itemscope itemtype="https://schema.org/WPHeader")
+        a(href="index.html" itemprop="name").logo Фетч
+        ul.nav-menu(itemscope itemtype="https://www.schema.org/SiteNavigationElement")
             for item in menu
                 li.menu-item
-                    a(href= item.url)= item.title
+                    a(temprop="url" href= item.url)= item.title
     .shopping-cart
         a(href="checkout.html") 
             <i class="fa fa-shopping-cart" aria-hidden="true"><div id='shopping-bug'></div></i>
