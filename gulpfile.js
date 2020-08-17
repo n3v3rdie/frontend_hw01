@@ -62,13 +62,14 @@ function buildScripts(cb) {
   src('src/scripts/vendor/*.js')
     .pipe(dest('build/scripts/vendor/'));
 
-  src(['src/scripts/index.js', 'src/scripts/item-card.js', 'src/scripts/menu.js'])
+  src('src/scripts/*.js')
     .pipe(webpack({ 
       mode: 'production',
       entry: {
         index: './src/scripts/index.js',
         menu: './src/scripts/menu.js',
         item_card: './src/scripts/item-card.js',
+        checkout: './src/scripts/checkout.js',
       },     
       output: { filename: '[name].js' } }))
     .pipe(dest('build/scripts/'));

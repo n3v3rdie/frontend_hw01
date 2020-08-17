@@ -21,7 +21,7 @@ h7{
     display: block;
     margin-bottom: 24px;
 }
-h5 {
+h5{
     margin-top: -24px;
     font-size: 13px;
     line-height: 17px;
@@ -236,17 +236,18 @@ main{
       position: relative;
       z-index: 99;
     }
+    &:nth-child(2){
+        background: #7482FF;
+    }
+    &:nth-child(2) *{
+        color: $light-color;
+    }
+    &:nth-child(3){
+        grid-area: b;
+        background: #FFE9FD;
+    }
 }
-.news-promo:nth-child(2){
-  background: #7482FF;
-}
-.news-promo:nth-child(2) *{
-  color: $light-color;
-}
-.news-promo:nth-child(3){
-  grid-area: b;
-  background: #FFE9FD;
-}
+
 .news-promo-img{
     position: relative;
     margin-top: -20px;
@@ -295,7 +296,7 @@ main{
     cursor: pointer;
     padding: 0 32px;
     z-index: 9999;
-    :hover{
+    &:hover{
       opacity: 1;
     }
 }
@@ -413,39 +414,41 @@ ul.detail{
 ul.detail>li{
     list-style-type: '— ';
 }
-.radiobutton:last-child{
-  margin-right: 0;
-}
-.radiobutton:hover span{
-  border: 1px solid #666666;
-}
 .radiobutton{
     display: block;
     margin-right: 12px;
     
+    &:last-child{
+        margin-right: 0;
+    }
+
+    &:hover span{
+        border: 1px solid #666666;
+    }
+
     input[type=radio] {
       display: none;
     }
     
     span {
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 6px 10px;
-      background: #FBFBFB;
-      border: 1px solid #DDDDDD;
-      box-sizing: border-box;
-      border-radius: 8px;
-      font-size: 16px;
-      line-height: 21px;
-      min-width: 42px;
-      min-height: 32px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 6px 10px;
+        background: #FBFBFB;
+        border: 1px solid #DDDDDD;
+        box-sizing: border-box;
+        border-radius: 8px;
+        font-size: 16px;
+        line-height: 21px;
+        min-width: 42px;
+        min-height: 32px;
     }
     input[type=radio]:checked +span{
-      color: $light-color;
-      background: #666666;
-      border: 1px solid #666666;
+        color: $light-color;
+        background: #666666;
+        border: 1px solid #666666;
     }
 }
 .item-size *{
@@ -472,9 +475,6 @@ ul.detail>li{
 .item-buy-settings > * {
     margin-top: 24px;
 }
-.item-button-primary:hover{
-    background: linear-gradient(180deg, #F5BF00 0%, #F0AD00 100%);
-}
 .item-button-primary{
     padding: 10px 25px;
     background: linear-gradient(180deg, #FFC908 0%, #FFBA08 100%);
@@ -486,6 +486,9 @@ ul.detail>li{
     font-size: 16px;
     line-height: 21px;
     margin-top: 40px;
+    &:hover{
+        background: linear-gradient(180deg, #F5BF00 0%, #F0AD00 100%);
+    }
 }
 .item-description-grid{
     display: grid;
@@ -522,9 +525,9 @@ ul.detail>li{
 }
 img.item-nav-slider{
     margin-right: 16px;
-}
-img.item-nav-slider:last-child{
-    margin-right: 0px;
+    &:last-child{
+        margin-right: 0px;
+    }
 }
 .slider-recommend{
     margin-bottom: 64px;
@@ -636,16 +639,17 @@ form.checkout-form{
 .checkout-footer{
     display: flex;
     margin-top: 80px;
+    *{
+        font-size: 13px;
+        line-height: 17px;
+        opacity: 0.75;
+    }
 }
 .checkout-footer > *{
     display: block;
     margin-right: 24px;
 }
-.checkout-footer *{
-    font-size: 13px;
-    line-height: 17px;
-    opacity: 0.75;
-}
+
 .input-wrapper > .subtitle{
     margin-left: 10px;
 }
@@ -653,138 +657,4 @@ form.checkout-form{
 /*
 addaptive
 */
-@media screen and (min-width: 320px) and (max-width: 1199px) {
-    #slider-recommend{
-        max-width: 264px;
-    }
-    .footer-nav{
-        flex-direction: column;
-    }
-    .footer-group{
-        margin-bottom: 32px;
-    }
-    .footer-content{
-        padding-left: 16px;
-    }
-    .bottom-title{
-        margin-top: 0;
-        flex-direction: column;
-    }
-    header{
-        padding: 0px 16px;
-    }
-    .nav-menu{
-        position: relative;
-        overflow: hidden;
-    }
-    .shopping-cart>a>span{
-        display: none;
-    }
-    main, main.checkout{
-        padding: 0;
-    }
-    .about-wrapper{
-        flex-direction: column;
-    }
-    .about-contact{
-        margin: 16px 0;
-    }
-    .main-cat{
-        flex-wrap: wrap;
-        padding: 16px 24px;
-        margin: 0;
-    }
-    .main-grid-news{
-        grid-template:
-        "a"
-        "b"
-        "c";
-        gap: 0;
-    }
-    .product-wrapper{
-        margin: 0;
-    }
-    .promo-title{
-        margin-left: 5px;
-    }
-    .product-item{
-        z-index: 0;
-        margin-top: -110px;
-        width: calc(90vw);
-        position: relative;
-    }
-    @media screen and (min-width: 320px) and (max-width: 500px) {
-        #product-slider{
-            transform: rotate(35deg);
-            width: calc(110vw);
-        }
-    }
-    .itemcard.flex-container{
-        flex-direction: column;
-    }
-    .item-slider{
-        order: 1;
-        margin: 38px auto 0px;
-        max-width: 80%;
-    }
-    .item-wrapper{
-        order: 2;
-        margin: 24px 12px;
-    }
-    .item-buy-settings{
-        width: 105%;
-        margin: 16px -12px 24px -12px;
-    }
-    .item-row-setting{
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .item-row-setting > .radiobutton{
-        margin-bottom: 4px;
-    }
-    .item-setting-title{
-        margin-bottom: 12px;
-    }
-    .checkout-cmpl-wrapper, .slider-recommend{
-        padding: 0 8px;
-    }
-    .checkout-grid{
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
-    }
-    .checkout-cart{
-        padding: 16px;
-    }
-    .summary{
-        align-items: flex-start;
-    }
-    form.checkout-form{
-        padding: 0;
-    }
-    form.checkout-form label{
-        padding: 0;
-        margin-left: 0;
-    }
-    .form-row{
-        margin-left: 16px;
-        flex-direction: column;
-    }
-    .rectangle{
-        flex-direction: column;
-    }
-    .rectangle .item-button-primary{
-        margin-top: 16px;
-        width: 230px;
-    }
-    .checkout-footer{
-        flex-direction: column;
-    }
-    .checkout-footer > * {
-        margin-left: 16px;
-        margin-bottom: 16px;
-    }
-    main.checkout > h1{
-        padding-top: 24px;
-        margin-left: 16px;
-    }
-}
+@import "adaptive";
